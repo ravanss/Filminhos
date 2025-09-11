@@ -13,3 +13,6 @@ Iniciar o poejeto criado com laravel
 ```
 php artisan serve
 ```
+
+php artisan migrate
+```
