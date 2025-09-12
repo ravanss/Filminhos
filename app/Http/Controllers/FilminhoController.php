@@ -14,7 +14,7 @@ class FilminhoController extends Controller
     public function index()
     {
         $filminhos = filminho::all();
-        dd($filminhos);
+        return view('filminho.index', ['filminhos' => $filminhos]);
     }
 
     /**
