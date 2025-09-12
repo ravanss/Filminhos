@@ -31,7 +31,7 @@
                                 <td>{{$filme->name}}</td>
                                 <td>{{$filme->tipo}}</td>
                                 <td>
-                                    <button class="btn btn-sucess">Editar filme</button>
+                                    <button class="btn btn-success">Editar filme</button>
                                     <button class="btn btn-danger">Excluir</button>
                                 </td>
                             </tr>
