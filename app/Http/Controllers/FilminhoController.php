@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\filminho;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FilminhoResquest;
 use Illuminate\Http\Request;
 
 class FilminhoController extends Controller
@@ -22,15 +23,23 @@ class FilminhoController extends Controller
      */
     public function create()
     {
-        //
+        return view('filminho.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FilminhoResquest $request)
     {
-        //
+        $filminho = Filminho::create([
+            'name' => $request['name'],
+            'tipo' => $request['tipo']
+        ]);
+        if($filminho){
+            return redirect()->route('filminho.index')->with('success', 'Filme cadastrado com sucesso!');
+        } else {
+            return redirect()->route('filminho.create')->with('error', 'Erro ao cadastrar filme. Tente novamente.');
+        }
     }
 
     /**

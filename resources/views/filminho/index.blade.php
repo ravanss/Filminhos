@@ -12,10 +12,15 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <h1>Listagem dos filmes</h1>
-                        <a href="{{ route('filminho.create') }}" class="btn btn-primary">Adicionar</a>
+                        <a href="{{ route('filminho.create') }}" class="btn btn-primary">Cadastra filme</a>
                     </div>
                 </div>
-                <table class="tabela" style="border: 1px solid black;">
+                @if (session('success'))
+                    <div class="alert alert-success mt-2" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <table class="tabela mt-2" style="border: 1px solid black;">
                     <thead style="border: 1px solid black;">
                         <tr>
                             <th>id</th>
