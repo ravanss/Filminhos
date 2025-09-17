@@ -36,8 +36,8 @@
                                 <td>{{$filme->name}}</td>
                                 <td>{{$filme->tipo}}</td>
                                 <td>
-                                    <button class="btn btn-success">Editar filme</button>
-                                    <button class="btn btn-danger">Excluir</button>
+                                    <a href="{{ route('filminho.edit', $filme->id) }}" class="btn btn-success">Editar filme</a>
+                                    <a href="{{ route('filminho.destroy', $filme->id) }}" class="btn btn-danger">Excluir</a>
                                 </td>
                             </tr>
                         @endforeach

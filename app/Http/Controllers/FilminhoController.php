@@ -55,15 +55,23 @@ class FilminhoController extends Controller
      */
     public function edit(filminho $filminho)
     {
-        //
+        return view('filminho.update', ['filme' => $filminho]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, filminho $filminho)
+    public function update(FilminhoResquest $request, filminho $filminho)
     {
-        //
+        $FilmeAtualizado = $filminho->update([
+            'name' => $request['name'],
+            'tipo' => $request['tipo']
+        ]);
+        if($FilmeAtualizado){
+            return redirect()->route('filminho.index')->with('success', 'Filme atualizado com sucesso!');
+        } else {
+            return redirect()->route('filminho.index')->with('error', 'Erro ao editar filme. Tente novamente.');
+        }
     }
 
     /**
