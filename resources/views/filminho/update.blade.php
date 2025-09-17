@@ -27,7 +27,7 @@
                     </div>
                 @endif
                 <form action="{{ route('filminho.update', $filme->id) }}" method="POST">
-                    @csrf @method('PUT');
+                    @csrf @method('PUT')
                     <div class="form-group mb-3">
                         <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Nome do filme" value="{{ $filme->name }}">
                         <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Genero do filme" value="{{ $filme->tipo }}">

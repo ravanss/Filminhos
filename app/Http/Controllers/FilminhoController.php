@@ -78,7 +78,12 @@ class FilminhoController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(filminho $filminho)
-    {
-        //
+    {   
+        $FilmeDeletado = $filminho->delete();
+        if($FilmeDeletado){
+            return redirect()->route('filminho.index')->with('success', 'Filme deletado com sucesso!');
+        } else {
+            return redirect()->route('filminho.index')->with('error', 'Erro ao deletar filme. Tente novamente.');
+        }
     }
 }

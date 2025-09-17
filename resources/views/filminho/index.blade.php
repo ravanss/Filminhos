@@ -35,9 +35,12 @@
                                 <td>{{$filme->id}}</td>
                                 <td>{{$filme->name}}</td>
                                 <td>{{$filme->tipo}}</td>
-                                <td>
+                                <td class="d-flex gap-2">
                                     <a href="{{ route('filminho.edit', $filme->id) }}" class="btn btn-success">Editar filme</a>
-                                    <a href="{{ route('filminho.destroy', $filme->id) }}" class="btn btn-danger">Excluir</a>
+                                    <form action="{{ route('filminho.destroy', $filme->id) }}" method="POST">
+                                        @csrf @method('DELETE')
+                                        <button class="btn btn-danger">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
